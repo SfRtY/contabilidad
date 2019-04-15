@@ -10,7 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::post('/doc/{IdInscripcion}','DocController@example');
 Route::get('/formulario','HomeController@formulario')->name('formulario');
 Route::get('/eliminar','HomeController@eliminar')->name('eliminar');
 Route::get('/prueba','HomeController@prueba')->name('prueba');
@@ -25,6 +25,7 @@ Route::get('/home','HomeController@index');
 Route::get('/', function () {
     return view('auth/login');
 });
+Route::get('/dc','HomeController@doc');
 /*
 Route::get('/formulario', function(){
     return view('form');

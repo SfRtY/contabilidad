@@ -45,7 +45,8 @@ class Inscripcion extends Controller{
             foreach ($buscar as $b) {
                 $var=$b->IdInscripcion;    
             }
-            return redirect('formulario')->with('msg','El participante ha sido registrado con el ID N°'.$var)->with('f','alert-success');
+            //return redirect('formulario')->with('msg','El participante ha sido registrado con el ID N°'.$var)->with('f','alert-success');
+            return redirect('dc')->with('msg','El participante ha sido registrado con el ID N°'.$var)->with('id',array($var));;
         }
         else{
             return redirect('formulario')->with('msg','El participante ya esta registrado')->with('f','alert-warning');

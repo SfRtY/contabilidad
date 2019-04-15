@@ -27,6 +27,9 @@ class HomeController extends Controller
         $nombre=Auth::user()->name;
         return view('form')->with('nombre',$nombre);
     }
+    public function doc(){
+        return view('doc');
+    }
     public function formulario(){
         return view('form');
     }
