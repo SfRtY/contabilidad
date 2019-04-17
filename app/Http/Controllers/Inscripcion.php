@@ -37,6 +37,7 @@ class Inscripcion extends Controller{
             $in->rsoc=$re->input('RazSoc');
             $in->ruc=$re->input('RUC');
             $in->direccion=$re->input('Direcc');
+            $in->monto=$re->input('monto');
             $in->iduser=Auth::id();
             $in->save();
             $dni=$re->input('dni');
@@ -46,7 +47,7 @@ class Inscripcion extends Controller{
                 $var=$b->IdInscripcion;    
             }
             //return redirect('formulario')->with('msg','El participante ha sido registrado con el ID N°'.$var)->with('f','alert-success');
-            return redirect('dc')->with('msg','El participante ha sido registrado con el ID N°'.$var)->with('id',array($var));;
+            return redirect('dc')->with('msg','El participante ha sido registrado con el ID N°'.$var)->with('id',array($var));
         }
         else{
             return redirect('formulario')->with('msg','El participante ya esta registrado')->with('f','alert-warning');
@@ -71,9 +72,12 @@ class Inscripcion extends Controller{
         $actualizar->rsoc=$re->input('RazSoc');
         $actualizar->ruc=$re->input('RUC');
         $actualizar->direccion=$re->input('Direcc');
+        $actualizar->monto=$re->input('monto');
         $actualizar->iduser=Auth::id();
         $actualizar->save();
-        return redirect('resultado')->with('msg','El usuario ha sido modificado correctamente');
+        $var=$IdInscripcion;
+        //return redirect('resultado')->with('msg','El usuario ha sido modificado correctamente');
+        return redirect('dc')->with('msg','El participante ha sido modificado correctamente')->with('id',array($var));
     }
     function Show($IdInscripcion){
         $buscar=\App\MIncripcion::find($IdInscripcion);

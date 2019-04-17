@@ -135,10 +135,18 @@
                     <label class="form-check-label" for="inlineCheckbox2">Abono de Cuenta</label>
                 </div>
             </div>
+
             <div class="form-group col-md-9">
                 <label for="dni">Deposito/Cheque N°:</label>
                 <input type="text" name="DepositoC" class="form-control" id="tel" maxlength="25" placeholder="Deposito o numero de cheque" required>
             </div>
+            </div>
+            
+            <div class="form-group row">
+                <label for="dni" class="col-sm-3 col-form-label">Monto:</label>
+                <div class="col-sm-9">
+                <input type="text" name="monto" class="form-control" id="tel" maxlength="7" placeholder="Ingresar el monto" required>
+                </div>
             </div>
 
             <div class="form-group"><h4 for="exampleInputEmail1">COMPROBANTE A EMITIR :</h4></div>

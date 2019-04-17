@@ -22,6 +22,59 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
+    public function dom()
+    {
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML('<!doctype html>
+        <html>
+            <head>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1">
+                <title>Laravel</title>
+                <style>
+                    .contenedor{
+                    margin-top: 50px;
+                    position: relative;
+                    display: inline-block;
+                    text-align: center;
+                    }  
+                    .nombre{
+                        position: absolute;
+                        top: 60%;
+                        right: 20px;
+                        font-size: 15px;
+                    }
+                    .categoria{
+                        position: absolute;
+                        top: 81%;
+                        right: 35%;
+                        font-size: 15px;
+                    }
+                    .dni{
+                        position: absolute;
+                        top: 320px;
+                        right: 68%;
+                        font-size: 15px;
+                    }
+                    .codigo{
+                        position: absolute;
+                        top: 320px;
+                        right: 25%;
+                        font-size: 15px;
+                    }
+                </style>
+            </head>
+            <body>
+                <div class="contenedor">
+                        <div class="nombre">Luis Manuel Contreras Moreno</div>
+                        <div class="categoria">Miembro pleno </div>
+                        <div class="dni">77777777</div>
+                        <div class="codigo">100</div>
+                </div>
+            </body>
+        </html>')->setPaper(array(0,0,255.114,340.152),'portrait');
+        return $pdf->stream('credencial.pdf');
+    }
     public function index()
     {
         $nombre=Auth::user()->name;

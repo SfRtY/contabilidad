@@ -10,6 +10,7 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/dom','HomeController@dom');
 Route::post('/doc/{IdInscripcion}','DocController@example');
 Route::get('/formulario','HomeController@formulario')->name('formulario');
 Route::get('/eliminar','HomeController@eliminar')->name('eliminar');
